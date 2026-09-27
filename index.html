@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تأكيد الدفع</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #ffffff;
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 32px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+        .price-badge {
+            background: linear-gradient(90deg, #ec4899, #8b5cf6);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+        .payment-method {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+        .payment-method strong {
+            color: #38bdf8;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(15, 23, 42, 0.6);
+            color: #ffffff;
+            font-size: 1rem;
+            direction: ltr;
+            text-align: left;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            color: white;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="price-badge">
+            السعر: ٥,٠٠٠ دينار
+        </div>
+
+        <div class="payment-method">
+            طريقة الدفع: <strong>كارت آسياسيل</strong>
+        </div>
+
+        <!-- رابط Formspree الخاص بك مدمج هنا -->
+        <form action="https://formspree.io/f/xgavprrg" method="POST">
+            
+            <div class="form-group">
+                <label for="telegram">اسم المستخدم في تليجرام (Telegram Username):</label>
+                <input type="text" id="telegram" name="telegram_username" placeholder="@username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="card_code">رقم كارت آسياسيل (١٦ رقم):</label>
+                <input type="text" id="card_code" name="asiacell_card" placeholder="1234xxxxxxxxx" required>
+            </div>
+
+            <button type="submit" class="btn-submit">إرسال وتأكيد الطلب</button>
+        </form>
+    </div>
+
+</body>
+</html>
